@@ -20,8 +20,7 @@ export class JobBoardComponent implements OnInit {
     this.apiCall.getLatestJobList().subscribe(result=>{
       this.allJobsId=result
       this.totalRound=Math.ceil(this.allJobsId.length/6)
-      console.log(this.allJobsId, this.allJobsId.slice(50))
-      this.allJobDetails=this.apiCall.getJobDetails(this.allJobsId.slice(50))
+      this.allJobDetails=this.apiCall.getJobDetails(this.allJobsId.slice((this.currentCount-1)*6, (this.currentCount)*6))
     })
   }
 
