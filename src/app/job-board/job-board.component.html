@@ -1,0 +1,17 @@
+<div id="main-container">
+    <div id="job-post-heading">
+        Hacker news job board
+    </div>
+    <div id="job-details">
+        <div class="job" *ngFor="let job of allJobDetails | async">
+            <div id="job-title"> 
+                <a id="job-link" target="_blank" href={{job.url}}>{{ job.title }}</a>
+            </div>
+            <div id="job-post-owner">
+                <span>By {{job.by}}</span>
+                <span>{{job.time | dateFormat}}</span>
+            </div>
+        </div>
+    </div>
+    <button [hidden]="currentCount==totalRound" id="button" (click)="loadMoreJob()">Load More</button>
+</div>
